@@ -1,4 +1,5 @@
 # スネークゲーム
+[![en](https://img.shields.io/badge/lang-en-blue.svg)](https://github.com/renm10/snake_game/blob/main/README.md)
 かの有名なコンピューターゲーム、「スネークゲーム」（ヘビゲーム）をPythonで
 一から作りました。
 
@@ -8,7 +9,7 @@
     1. 壁
     2. 自分自身
 
-### 目標
+### ~目標~
 - ヘビをどれぐらい長くできるか勝負だ！
 
 ## 操作方法
