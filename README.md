@@ -7,7 +7,7 @@ This is the famous snake game made in python from scratch.
 - You will lose if your snake hits...
     1. Wall
     2. Yourself
-### ~Objective~
+### -- Objective --
 - Grow your snake as long as possible before losing!
 
 ## Controls
