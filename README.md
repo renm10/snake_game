@@ -1,5 +1,6 @@
 # Snake Game
 [![jpn](https://img.shields.io/badge/lang-jpn-red.svg)](https://github.com/renm10/snake_game/blob/main/README-JP.md)
+
 This is the famous snake game made in python from scratch.
 
 ## Rules
