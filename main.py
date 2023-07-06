@@ -3,11 +3,10 @@ import random
 import sys #For sys.exit() -> quitting the program
 
 SIZE = 10 #Size of the snake block
-WIDTH, HEIGHT = 720, 480
+WIDTH, HEIGHT = 720, 480 #Width / Height of window
 FPS = 10 #Frame per second
 
-#SNAKE INFO
-
+#Snake Class
 class Snake:
     def __init__(self):
         self.x, self.y = (WIDTH / 2), (HEIGHT / 2)
@@ -15,8 +14,6 @@ class Snake:
         self.velocityy = 0 # Doesn't move up or down 
         self.head = [WIDTH / 2, HEIGHT / 2] #Starting Position
         self.body = [[(WIDTH / 2) - SIZE, HEIGHT / 2]] #Starting Position of body (moving right)
-        # self.head = [720, HEIGHT / 2] #Starting Position
-        # self.body = [[720 - SIZE, HEIGHT / 2]] #Starting Position of body (moving right)
 
     def updateHead(self):
         self.head[0] += self.velocityx
@@ -52,6 +49,7 @@ fontbig = pygame.font.Font(None, 120)
 fontmed = pygame.font.Font(None, 60)
 fontsmall = pygame.font.Font(None, 50)
 
+#Displays a given text to the screen
 def displayText(msg, font, color, y):
     text = font.render(msg, True, color)
     text_rect = text.get_rect(center=(WIDTH / 2, y))
@@ -61,7 +59,7 @@ def displayText(msg, font, color, y):
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Snake Game')
 
-#Game Function
+#Snake Game main loop
 def playGame():
     score = 0
     clock = pygame.time.Clock()
@@ -81,7 +79,7 @@ def playGame():
             if event.type == pygame.QUIT: #When user x's out of the window
                 pygame.quit()
                 sys.exit()
-            if event.type == pygame.KEYDOWN:
+            if event.type == pygame.KEYDOWN: #Checks the opposite direction of the current direction
                 if (event.key == pygame.K_LEFT or event.key == pygame.K_a) and right != True:
                     snake.velocityx = -10
                     snake.velocityy = 0
@@ -112,13 +110,13 @@ def playGame():
                     down = True
 
 
-        # Player gets Fruit => Grow the snake
+        # Player gets Fruit => Grow the snake and increase score by 10
         if snake.head == fruit_pos: # When player gets the fruit, move it somewhere else randomly
             fruit_pos = [random.randint(0, (WIDTH - SIZE) / 10) * 10, random.randint(0, (HEIGHT - SIZE) / 10) * 10]
             score += 10
             snake.body.append([(snake.body[-1][0] + SIZE), (snake.body[-1][1] + SIZE)])
 
-        # Update
+        # Update Head and Body
         snake.updateBody()
         snake.updateHead()
         
@@ -168,14 +166,15 @@ def playGame():
 
         clock.tick(FPS)
 
+#Main Menu Loop 
 def mainMenu():
     while True:
         for event in pygame.event.get():
-            if event.type == pygame.QUIT:
+            if event.type == pygame.QUIT: #If player x's out of the window
                 pygame.quit()
                 sys.exit()
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
+                if event.key == pygame.K_SPACE: #Start the game 
                     playGame()
         
         screen.fill(white)
