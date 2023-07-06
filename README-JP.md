@@ -1,5 +1,6 @@
 # スネークゲーム
 [![en](https://img.shields.io/badge/lang-en-blue.svg)](https://github.com/renm10/snake_game/blob/main/README.md)
+
 かの有名なコンピューターゲーム、「スネークゲーム」（ヘビゲーム）をPythonで
 一から作りました。
 
