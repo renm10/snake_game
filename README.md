@@ -15,8 +15,9 @@ This is the famous snake game made in python from scratch.
 - `W` = UP `A` = LEFT `S` = DOWN `D` = RIGHT
 - **OR** Arrow Keys
 
-## TODOs
-- [ ] Add comments on main file
+## Requirements
+- Python
+- pygame
 
 
 
